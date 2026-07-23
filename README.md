@@ -15,13 +15,12 @@ Territory/Demographics tables added later).
 
 ```mermaid
 erDiagram
-  categories {
-    int category_id PK
-    string category_name
-    string description
-    string picture
-  }
-  suppliers {
+direction LR
+
+%%-----------------------------
+%% Left side
+%%-----------------------------
+suppliers {
     int supplier_id PK
     string company_name
     string contact_name
@@ -34,8 +33,16 @@ erDiagram
     string phone
     string fax
     string homepage
-  }
-  products {
+}
+
+categories {
+    int category_id PK
+    string category_name
+    string description
+    string picture
+}
+
+products {
     int product_id PK
     string product_name
     int supplier_id FK
@@ -46,44 +53,20 @@ erDiagram
     int units_on_order
     int reorder_level
     int discontinued
-  }
-  customers {
-    string customer_id PK
-    string company_name
-    string contact_name
-    string contact_title
-    string address
-    string city
-    string region
-    string postal_code
-    string country
-    string phone
-    string fax
-  }
-  orders {
-    int order_id PK
-    string customer_id FK
-    int employee_id FK
-    date order_date
-    date required_date
-    date shipped_date
-    int ship_via FK
-    decimal freight
-    string ship_name
-    string ship_address
-    string ship_city
-    string ship_region
-    string ship_postal_code
-    string ship_country
-  }
-  order_details {
+}
+
+%%-----------------------------
+%% Center
+%%-----------------------------
+order_details {
     int order_id PK, FK
     int product_id PK, FK
     decimal unit_price
     int quantity
     decimal discount
-  }
-  employees {
+}
+
+employees {
     int employee_id PK
     string last_name
     string first_name
@@ -102,53 +85,103 @@ erDiagram
     string notes
     int reports_to FK
     string photo_path
-  }
-  shippers {
-    int shipper_id PK
-    string company_name
-    string phone
-  }
-  region {
+}
+
+employee_territories {
+    int employee_id PK, FK
+    int territory_id PK, FK
+}
+
+region {
     int region_id PK
     string region_description
-  }
-  territories {
+}
+
+territories {
     int territory_id PK
     string territory_description
     int region_id FK
-  }
-  employee_territories {
-    int employee_id PK, FK
-    int territory_id PK, FK
-  }
-  customer_demographics {
+}
+
+%%-----------------------------
+%% Right side
+%%-----------------------------
+orders {
+    int order_id PK
+    string customer_id FK
+    int employee_id FK
+    date order_date
+    date required_date
+    date shipped_date
+    int ship_via FK
+    decimal freight
+    string ship_name
+    string ship_address
+    string ship_city
+    string ship_region
+    string ship_postal_code
+    string ship_country
+}
+
+shippers {
+    int shipper_id PK
+    string company_name
+    string phone
+}
+
+customers {
+    string customer_id PK
+    string company_name
+    string contact_name
+    string contact_title
+    string address
+    string city
+    string region
+    string postal_code
+    string country
+    string phone
+    string fax
+}
+
+customer_demographics {
     string customer_type_id PK
     string customer_desc
-  }
-  customer_customer_demo {
+}
+
+customer_customer_demo {
     string customer_id PK, FK
     string customer_type_id PK, FK
-  }
-  us_states {
+}
+
+us_states {
     int state_id PK
     string state_name
     string state_abbr
     string state_region
-  }
+}
 
-  categories ||--o{ products : "category_id"
-  suppliers ||--o{ products : "supplier_id"
-  customers ||--o{ orders : "customer_id"
-  employees ||--o{ orders : "employee_id"
-  shippers ||--o{ orders : "ship_via"
-  orders ||--o{ order_details : "order_id"
-  products ||--o{ order_details : "product_id"
-  employees ||--o{ employees : "reports_to"
-  region ||--o{ territories : "region_id"
-  employees ||--o{ employee_territories : "employee_id"
-  territories ||--o{ employee_territories : "territory_id"
-  customers ||--o{ customer_customer_demo : "customer_id"
-  customer_demographics ||--o{ customer_customer_demo : "customer_type_id"
+%%=============================
+%% Relationships
+%%=============================
+
+suppliers ||--o{ products : supplies
+categories ||--o{ products : categorizes
+
+products ||--o{ order_details : contains
+orders ||--o{ order_details : includes
+
+customers ||--o{ orders : places
+employees ||--o{ orders : handles
+shippers ||--o{ orders : ships
+
+employees ||--o{ employees : reports_to
+
+employees ||--o{ employee_territories : assigned
+territories ||--o{ employee_territories : contains
+region ||--o{ territories : includes
+
+customers ||--o{ customer_customer_demo : has
+customer_demographics ||--o{ customer_customer_demo : classifies
 ```
 
 `employees.reports_to` is self-referencing (each employee's manager, also an
