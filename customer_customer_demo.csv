@@ -1,1 +1,5 @@
-customer_id,customer_type_id
+﻿\P\	customer_id	customer_type_id\
+K	1	0
+t	customers	customer_demographics
+c	customer_id	customer_type_id
+#

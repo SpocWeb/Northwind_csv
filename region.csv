@@ -1,5 +1,9 @@
-region_id,region_description
-1,Eastern
-2,Western
-3,Northern
-4,Southern
+﻿\P\	region_id	region_description\
+T	5	$
+N	0	1
+K	1	0
+#
+V	1	Eastern
+V	2	Western
+V	3	Northern
+V	4	Southern
