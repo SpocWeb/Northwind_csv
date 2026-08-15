@@ -6,6 +6,42 @@ links below.
 - https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases
 - https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
 
+
+### Table Kind Legend
+
+| Kind        |  #| Meaning                                                                                              |
+| ----------- | --| ------------------------------------------------------------------------------------------------------ |
+| Primary     | 11| Independent master/reference entity; owns its own identity and surrogate or natural key.                |
+| Subtype     |  0| 1:1 extension row whose primary key is also a foreign key to its supertype (e.g. `Employee` extends `Person`). |
+| Detail      |  1| Structural or line-item child row (order lines, cart items, hierarchy members) tied to one parent.        |
+| Linking     |  2| Pure many-to-many junction table with a composite key resolving two (or more) other tables.               |
+| History     |  0| Temporal/versioned or append-only log row tracking how a parent's data changed over time.                |
+| Total       | 14||
+
+- `employees.reports_to` is self-referencing (each employee's manager, also an employee). 
+- `us_states` is standalone reference data 
+  with no formal foreign key into the rest of the schema. 
+- `customer_demographics` and `customer_customer_demo` are header-only (0 data rows) 
+  a well-known quirk of the classic Northwind sample.
+
+| Table                  | Kind    | Rows [#] | Columns [#] | Primary Key                          | Foreign Keys                                          |
+| ---------------------- | ------- | -------: | ----------: | ------------------------------------ | ----------------------------------------------------- |
+| categories             | Primary |        8 |           4 | category_id                          |                                                       |
+| suppliers              | Primary |       29 |          12 | supplier_id                          |                                                       |
+| products               | Primary |       77 |          10 | product_id                           | supplies: suppliers, categorizes: categories          |
+| customers              | Primary |       91 |          11 | customer_id                          |                                                       |
+| orders                 | Primary |      830 |          14 | order_id                             | places: customers, handles: employees, ships: shippers |
+| order_details          | Detail  |     2155 |           5 | order_id, product_id                 | contains: products, includes: orders                  |
+| employees              | Primary |        9 |          18 | employee_id                          | reports_to: employees                                 |
+| shippers               | Primary |        6 |           3 | shipper_id                           |                                                       |
+| region                 | Primary |        4 |           2 | region_id                            |                                                       |
+| territories            | Primary |       53 |           3 | territory_id                         | includes: region                                      |
+| employee_territories   | Linking |       49 |           2 | employee_id, territory_id            | assigned: employees, contains: territories            |
+| customer_demographics  | Primary |        0 |           2 | customer_type_id                     |                                                       |
+| customer_customer_demo | Linking |        0 |           2 | customer_id, customer_type_id        | has: customers, classifies: customer_demographics     |
+| us_states              | Primary |       51 |           4 | state_id                             |                                                       |
+
+
 ## Schema
 
 Entity-relationship diagram of all 14 tables present as CSV files in this
@@ -183,29 +219,6 @@ region ||--o{ territories : includes
 customers ||--o{ customer_customer_demo : has
 customer_demographics ||--o{ customer_customer_demo : classifies
 ```
-
-`employees.reports_to` is self-referencing (each employee's manager, also an
-employee). `us_states` is standalone reference data with no formal foreign
-key into the rest of the schema. `customer_demographics` and
-`customer_customer_demo` are header-only (0 data rows) - a well-known quirk
-of the classic Northwind sample, not a defect in this checkout.
-
-| Table | Rows |
-|---|---|
-| categories | 8 |
-| suppliers | 29 |
-| products | 77 |
-| customers | 91 |
-| orders | 830 |
-| order_details | 2155 |
-| employees | 9 |
-| shippers | 6 |
-| region | 4 |
-| territories | 53 |
-| employee_territories | 49 |
-| customer_demographics | 0 |
-| customer_customer_demo | 0 |
-| us_states | 51 |
 
 ## Used by
 
