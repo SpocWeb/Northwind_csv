@@ -1,54 +1,60 @@
-territory_id,territory_description,region_id
-01581,Westboro,1
-01730,Bedford,1
-01833,Georgetow,1
-02116,Boston,1
-02139,Cambridge,1
-02184,Braintree,1
-02903,Providence,1
-03049,Hollis,3
-03801,Portsmouth,3
-06897,Wilton,1
-07960,Morristown,1
-08837,Edison,1
-10019,New York,1
-10038,New York,1
-11747,Mellvile,1
-14450,Fairport,1
-19428,Philadelphia,3
-19713,Neward,1
-20852,Rockville,1
-27403,Greensboro,1
-27511,Cary,1
-29202,Columbia,4
-30346,Atlanta,4
-31406,Savannah,4
-32859,Orlando,4
-33607,Tampa,4
-40222,Louisville,1
-44122,Beachwood,3
-45839,Findlay,3
-48075,Southfield,3
-48084,Troy,3
-48304,Bloomfield Hills,3
-53404,Racine,3
-55113,Roseville,3
-55439,Minneapolis,3
-60179,Hoffman Estates,2
-60601,Chicago,2
-72716,Bentonville,4
-75234,Dallas,4
-78759,Austin,4
-80202,Denver,2
-80909,Colorado Springs,2
-85014,Phoenix,2
-85251,Scottsdale,2
-90405,Santa Monica,2
-94025,Menlo Park,2
-94105,San Francisco,2
-95008,Campbell,2
-95054,Santa Clara,2
-95060,Santa Cruz,2
-98004,Bellevue,2
-98052,Redmond,2
-98104,Seattle,2
+﻿\P\	territory_id	territory_description	region_id\
+T	5	$	5
+N	0	1	0
+K	1	0	0
+t			region
+c			region_id
+#
+V	01581	Westboro	1
+V	01730	Bedford	1
+V	01833	Georgetow	1
+V	02116	Boston	1
+V	02139	Cambridge	1
+V	02184	Braintree	1
+V	02903	Providence	1
+V	03049	Hollis	3
+V	03801	Portsmouth	3
+V	06897	Wilton	1
+V	07960	Morristown	1
+V	08837	Edison	1
+V	10019	New York	1
+V	10038	New York	1
+V	11747	Mellvile	1
+V	14450	Fairport	1
+V	19428	Philadelphia	3
+V	19713	Neward	1
+V	20852	Rockville	1
+V	27403	Greensboro	1
+V	27511	Cary	1
+V	29202	Columbia	4
+V	30346	Atlanta	4
+V	31406	Savannah	4
+V	32859	Orlando	4
+V	33607	Tampa	4
+V	40222	Louisville	1
+V	44122	Beachwood	3
+V	45839	Findlay	3
+V	48075	Southfield	3
+V	48084	Troy	3
+V	48304	Bloomfield Hills	3
+V	53404	Racine	3
+V	55113	Roseville	3
+V	55439	Minneapolis	3
+V	60179	Hoffman Estates	2
+V	60601	Chicago	2
+V	72716	Bentonville	4
+V	75234	Dallas	4
+V	78759	Austin	4
+V	80202	Denver	2
+V	80909	Colorado Springs	2
+V	85014	Phoenix	2
+V	85251	Scottsdale	2
+V	90405	Santa Monica	2
+V	94025	Menlo Park	2
+V	94105	San Francisco	2
+V	95008	Campbell	2
+V	95054	Santa Clara	2
+V	95060	Santa Cruz	2
+V	98004	Bellevue	2
+V	98052	Redmond	2
+V	98104	Seattle	2

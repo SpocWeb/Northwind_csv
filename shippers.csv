@@ -1,7 +1,11 @@
-shipper_id,company_name,phone
-1,Speedy Express,(503) 555-9831
-2,United Package,(503) 555-3199
-3,Federal Shipping,(503) 555-9931
-4,Alliance Shippers,1-800-222-0451
-5,UPS,1-800-782-7892
-6,DHL,1-800-225-5345
+﻿\P\	shipper_id	company_name	phone\
+T	5	$	$
+N	0	1	1
+K	1	0	0
+#
+V	1	Speedy Express	(503) 555-9831
+V	2	United Package	(503) 555-3199
+V	3	Federal Shipping	(503) 555-9931
+V	4	Alliance Shippers	1-800-222-0451
+V	5	UPS	1-800-782-7892
+V	6	DHL	1-800-225-5345
