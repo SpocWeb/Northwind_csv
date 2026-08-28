@@ -49,6 +49,45 @@ repository, derived from each file's actual header row (not from
 `Northwind.dbml`, which only covers `Customers`/`Orders` and predates the
 Territory/Demographics tables added later).
 
+### Table Dependency Flow Diagram
+
+Arrows point from the table holding the foreign key to the table it references, labeled with
+the referencing column(s). 
+
+```mermaid
+flowchart LR
+  Suppliers["Suppliers"]
+  Categories["Categories"]
+  Products["Products"]
+  Orders["Orders"]
+  OrderDetails["OrderDetails"]
+  Customers["Customers"]
+  Employees["Employees"]
+  Shippers["Shippers"]
+  Region["Region"]
+  Territories["Territories"]
+  EmployeeTerritories["EmployeeTerritories"]
+  CustomerDemographics["CustomerDemographics"]
+  CustomerCustomerDemo["CustomerCustomerDemo"]
+  USStates["USStates"]
+
+  Suppliers -->|supplier_id| Products
+  Categories -->|category_id| Products
+  Products -->|product_id| OrderDetails
+  Orders -->|order_id| OrderDetails
+  Customers -->|customer_id| Orders
+  Employees -->|employee_id| Orders
+  Shippers -->|ship_via| Orders
+  Employees -->|reports_to| Employees
+  Employees -->|employee_id| EmployeeTerritories
+  Territories -->|territory_id| EmployeeTerritories
+  Region -->|region_id| Territories
+  Customers -->|customer_id| CustomerCustomerDemo
+  CustomerDemographics -->|customer_type_id| CustomerCustomerDemo
+```
+
+### Entity-Relationship Diagram
+
 ```mermaid
 erDiagram
 direction LR

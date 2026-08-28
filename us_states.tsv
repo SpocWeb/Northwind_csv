@@ -1,0 +1,57 @@
+﻿\P\	state_id	state_name	state_abbr	state_region\
+T	5	$	$	$
+N	0	1	1	1
+K	1	0	0	0
+G	"
+#
+V	1	Alabama	AL	south
+V	2	Alaska	AK	north
+V	3	Arizona	AZ	west
+V	4	Arkansas	AR	south
+V	5	California	CA	west
+V	6	Colorado	CO	west
+V	7	Connecticut	CT	east
+V	8	Delaware	DE	east
+V	9	District of Columbia	DC	east
+V	10	Florida	FL	south
+V	11	Georgia	GA	south
+V	12	Hawaii	HI	west
+V	13	Idaho	ID	midwest
+V	14	Illinois	IL	midwest
+V	15	Indiana	IN	midwest
+V	16	Iowa	IO	midwest
+V	17	Kansas	KS	midwest
+V	18	Kentucky	KY	south
+V	19	Louisiana	LA	south
+V	20	Maine	ME	north
+V	21	Maryland	MD	east
+V	22	Massachusetts	MA	north
+V	23	Michigan	MI	north
+V	24	Minnesota	MN	north
+V	25	Mississippi	MS	south
+V	26	Missouri	MO	south
+V	27	Montana	MT	west
+V	28	Nebraska	NE	midwest
+V	29	Nevada	NV	west
+V	30	New Hampshire	NH	east
+V	31	New Jersey	NJ	east
+V	32	New Mexico	NM	west
+V	33	New York	NY	east
+V	34	North Carolina	NC	east
+V	35	North Dakota	ND	midwest
+V	36	Ohio	OH	midwest
+V	37	Oklahoma	OK	midwest
+V	38	Oregon	OR	west
+V	39	Pennsylvania	PA	east
+V	40	Rhode Island	RI	east
+V	41	South Carolina	SC	east
+V	42	South Dakota	SD	midwest
+V	43	Tennessee	TN	midwest
+V	44	Texas	TX	west
+V	45	Utah	UT	west
+V	46	Vermont	VT	east
+V	47	Virginia	VA	east
+V	48	Washington	WA	west
+V	49	West Virginia	WV	south
+V	50	Wisconsin	WI	midwest
+V	51	Wyoming	WY	west
